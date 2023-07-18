@@ -28,12 +28,10 @@ for line in filename:
     line = line.rstrip()
     if line.startswith('From') and not line.startswith('From:'):
         words = line.split()
-        for word in words:
-            days = word[2]
-            for day in days:
-                if day not in new_dict:
-                    new_dict[day] = 1
-                else:
-                    new_dict += 1
+        day = words[2]
+        if day not in new_dict:
+            new_dict[day] = 1
+        else:
+            new_dict[day] += 1
 
 print(new_dict)
